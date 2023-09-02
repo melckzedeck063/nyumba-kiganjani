@@ -18,13 +18,13 @@ public class HomeActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        replaceFragment(new HomeFragment());
+//        replaceFragment(new HomeFragment());
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
-                case R.id.navigation_home:
-                    replaceFragment(new HomeFragment());
-                    return true;
+//                case R.id.navigation_home:
+//                    replaceFragment(new HomeFragment());
+//                    return true;
                 case R.id.navigation_cart:
                     replaceFragment(new CartFragment());
                     return true;
