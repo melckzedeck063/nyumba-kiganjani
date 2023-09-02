@@ -10,8 +10,8 @@
     <LinearLayout
         android:id="@+id/layout_container"
         android:layout_width="match_parent"
-        android:background="@color/white"
-        android:layout_height="729dp"
+        android:background="@drawable/custom_bg"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:text="Find Your"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="28dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
@@ -39,20 +39,21 @@
                 android:layout_height="wrap_content"
                 android:text="Dream House"
                 android:textStyle="bold"
-                android:textColor="@color/teal_700"
+                android:textColor="@color/white"
                 android:textSize="28dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="28dp"
                 />
         </FrameLayout>
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:background="@drawable/recycler_bg"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="1dp"
+            android:paddingHorizontal="10dp"
+            android:layout_marginBottom="15dp"
+            android:paddingTop="10dp"
             android:layout_marginTop="30dp"
             android:id="@+id/recycler_view2"
             />
