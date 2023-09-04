@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     String loginUrl = "http://192.168.43.33/Dkiganjani/";
     private RequestQueue  requestQueue;
     private ProgressDialog progressDialog;
+    private SharedPreferenceHelper sharedPreferenceHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,30 @@ public class LoginActivity extends AppCompatActivity {
                 LoginUser();
             }
         });
+
+    }
+
+    private void checkLogedUser(){
+
+        sharedPreferenceHelper =  new SharedPreferenceHelper(this);
+
+        String username;
+
+            username = sharedPreferenceHelper.getUsername();
+        if(progressDialog != null  &&  progressDialog.isShowing()){
+            progressDialog.dismiss();
+        }
+        if(username.isEmpty()){
+
+            }
+            else  {
+                progressDialog =  ProgressDialog.show(LoginActivity.this, "", "Loggin in....", true);
+
+            }
+        new Handler().postDelayed((Runnable) () -> {
+            navigateHome();
+        },3000);
+
 
     }
 
@@ -99,6 +124,7 @@ public class LoginActivity extends AppCompatActivity {
                                     try {
                                         Toast.makeText(LoginActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
                                         navigateHome();
+                                        finish();
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
@@ -144,4 +170,6 @@ public class LoginActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+
 }
