@@ -55,31 +55,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void checkLogedUser(){
-
         sharedPreferenceHelper =  new SharedPreferenceHelper(this);
-
         String username;
-
-            username = sharedPreferenceHelper.getUsername();
-        if(progressDialog != null  &&  progressDialog.isShowing()){
-            progressDialog.dismiss();
-        }
+        username = sharedPreferenceHelper.getUsername();
         if(username.isEmpty()){
 
-            }
-            else  {
-                progressDialog =  ProgressDialog.show(LoginActivity.this, "", "Loggin in....", true);
-
-            }
-        new Handler().postDelayed((Runnable) () -> {
+        }else {
             navigateHome();
-        },3000);
-
+        }
 
     }
+
 
     private void LoginUser(){
 
@@ -109,6 +95,13 @@ public class LoginActivity extends AppCompatActivity {
                             if(results.equals("1")){
                                 email_address.setText("");
                                 passcode.setText("");
+
+                                JSONObject jsonObject1 = jsonObject.getJSONObject("user_data");
+                                sharedPreferenceHelper.setFirstname(jsonObject1.getString("firstname"));
+                                sharedPreferenceHelper.setLastname(jsonObject1.getString("lastname"));
+                                sharedPreferenceHelper.setUsername(jsonObject1.getString("username"));
+                                sharedPreferenceHelper.setPhone(jsonObject1.getString("phone"));
+                                sharedPreferenceHelper.setRole(jsonObject1.getString("role"));
 
                                 if(progressDialog != null  &&  progressDialog.isShowing()){
                                     progressDialog.dismiss();
